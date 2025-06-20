@@ -11,7 +11,7 @@ interface Post {
   heroImage: string | null;
   categories: string[];
   tags: string[];
-  authors: string[];
+  author: string;
 }
 
 export function getAllTags(posts: MDXInstance<Post>[] = []) {
