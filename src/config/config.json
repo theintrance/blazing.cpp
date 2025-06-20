@@ -11,7 +11,7 @@
     "pageSize": 6
   },
   "features": {
-    "youtube": true,
+    "youtube": false,
     "dark_mode": true
   },
   "metadata": {
@@ -19,8 +19,8 @@
     "meta_description": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript."
   },
   "author": {
-    "name": "Oscar Barajas Tavares @gndx",
-    "avatar": "https://s3.amazonaws.com/gndx.dev/gndx-astro-avatar.png",
-    "bio": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript."
+    "name": "blazing.cpp",
+    "avatar": "https://github.com/theintrance.png",
+    "bio": "Study less_slow.cpp by @ashvardanian."
   }
 }
