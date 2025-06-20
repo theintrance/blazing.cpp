@@ -38,15 +38,15 @@
     "lint:eslint": "eslint . --ext .js,.ts,.astro"
   },
   "devDependencies": {
-    "@astrojs/mdx": "2.2.3",
+    "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "4.0.5",
     "@astrojs/sitemap": "3.1.2",
-    "@astrojs/tailwind": "5.1.0",
+    "@astrojs/tailwind": "^5.1.5",
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/typography": "0.5.12",
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
-    "astro": "^4.16.8",
+    "astro": "^5.10.0",
     "astro-md-generator": "1.0.0",
     "astro-robots-txt": "1.0.0",
     "dotenv": "16.4.5",
@@ -58,7 +58,7 @@
     "prettier-plugin-astro": "0.13.0",
     "prettier-plugin-tailwindcss": "0.5.13",
     "tailwindcss": "3.4.3",
-    "vite-plugin-pwa": "0.19.7"
+    "vite-plugin-pwa": "^1.0.0"
   },
   "resolutions": {
     "astro/sharp": "0.33.1",
