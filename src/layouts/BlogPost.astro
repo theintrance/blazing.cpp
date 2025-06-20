@@ -37,7 +37,7 @@ const { title, description, pubDate, heroImage, categories, tags, author } = Ast
       <div class="text-text mt-4 flex flex-wrap items-center justify-center text-zinc-800 dark:text-zinc-200">
         <div class="mx-3 mt-2 flex flex-wrap items-center font-medium">
           <figure>
-            <Image
+            <img
               alt={config.author.name}
               class="mr-2 h-6 w-6 rounded-full"
               width={50}
@@ -45,7 +45,6 @@ const { title, description, pubDate, heroImage, categories, tags, author } = Ast
               src={`https://github.com/${author}.png`}
               decoding="async"
               loading="lazy"
-              style="border: 1px solid #dfdfdf;"
             />
           </figure>
           <span><b><a href={`https://github.com/${author}`}>{`@${author}`}</a></b></span>
