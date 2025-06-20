@@ -21,7 +21,16 @@ const socialItems = social.networks;
             socialItems?.map((item) => (
               <a href={item.url} target="_blank" rel="noopener noreferrer">
                 <figure>
-                  <Fragment set:html={item.svg} />
+                  <div class="flex items-center space-x-2">
+                    <img
+                      src={`https://github.com/${item.name}.png`}
+                      alt={item.name}
+                      width={32}
+                      height={32}
+                      class="rounded-full"
+                    />
+                    <span class="text-sm text-zinc-500 dark:text-zinc-400">@{item.name}</span>
+                  </div>
                 </figure>
               </a>
             ))
