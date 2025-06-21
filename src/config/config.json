@@ -1,22 +1,22 @@
 {
   "site": {
     "title": "blazing.cpp",
-    "base_url": "https://ev0.gndx.io",
-    "base_path": "/",
+    "base_url": "https://theintrance.github.io",
+    "base_path": "/blazing.cpp",
     "favicon": "/favicon.png",
     "logoLight": "/logo.svg",
     "logoDark": "/logo.svg",
     "lang": "en",
-    "description": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript.",
-    "pageSize": 6
+    "description": "Study less_slow.cpp",
+    "pageSize": 10
   },
   "features": {
     "youtube": false,
     "dark_mode": true
   },
   "metadata": {
-    "meta_author": "Oscar Barajas @gndx",
-    "meta_description": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript."
+    "meta_author": "!nTrance",
+    "meta_description": "Study less_slow.cpp by !nTrance"
   },
   "author": {
     "name": "blazing.cpp",
