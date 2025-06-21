@@ -22,7 +22,7 @@ const { title, description, pubDate, heroImage, categories, tags, author } = Ast
         heroImage && (
           <figure class="h-auto w-auto object-cover md:h-[480px]">
             <Image
-              class="transition duration-300 ease-in-out hover:scale-110"
+              class="w-full h-full object-cover object-center transition duration-300 ease-in-out hover:scale-110"
               src={`${base_path}${heroImage}`}
               alt={title}
               width={960}
