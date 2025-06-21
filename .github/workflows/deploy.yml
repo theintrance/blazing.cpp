@@ -33,6 +33,9 @@ jobs:
           cache: "npm"
           cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
 
+      - name: Build
+        run: ./build.sh
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
