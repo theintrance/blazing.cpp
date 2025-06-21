@@ -26,39 +26,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/astro/pnpm-lock.yaml" ]; then
-            echo "manager=pnpm" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=pnpm" >> $GITHUB_OUTPUT
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "pnpm"
-          cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
+          cache: "npm"
+          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
         working-directory: ${{ env.BUILD_PATH }}
 
       - name: Build with Astro
         run: |
-          pnpm astro build \
+          npm run build \
             --site "${{ steps.pages.outputs.origin }}${{ steps.pages.outputs.base_path }}/" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
