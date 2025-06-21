@@ -10,6 +10,7 @@ import { manifest } from './src/utils/manifest';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://theintrance.github.io',
   base: '/blazing.cpp',
   image: {
     remotePatterns: [{ protocol: 'https' }],

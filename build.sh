@@ -2,24 +2,23 @@
 
 set -e
 
+ASTRO_ASSETS_PATH="astro/src/content/blog/assets"
 ASTRO_BLOG_PATH="astro/src/content/blog"
-BLOG_PATH="posts"
+ASTRO_THUMBNAIL_PATH="astro/public/thumbnails"
 
-ASTRO_ASSETS_PATH="astro/public/assets"
-ASSETS_PATH="assets"
+BLOG_PATH="posts"
+BLOG_ASSETS_PATH="$BLOG_PATH/assets"
+BLOG_THUMBNAIL_PATH="$BLOG_PATH/thumbnails"
 
 # Copy blog posts to Astro blog path
 rm -rf $ASTRO_BLOG_PATH
 mkdir -p $ASTRO_BLOG_PATH
-find $BLOG_PATH -type f -name '*.md' -exec cp {} "$ASTRO_BLOG_PATH" \;
+find $BLOG_PATH -type f -name '*.md' -exec cp {} $ASTRO_BLOG_PATH \;
 
 # Copy assets to Astro assets path
 rm -rf $ASTRO_ASSETS_PATH
-cp -r $ASSETS_PATH $ASTRO_ASSETS_PATH
-    
-# Replace /assets with assets
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    find $ASTRO_BLOG_PATH -type f -name '*.md' -exec sed -i '' 's/!\[\](\/assets/!\[\](\/public\/assets/g' {} +
-else
-    find $ASTRO_BLOG_PATH -type f -name '*.md' -exec sed -i 's/!\[\](\/assets/!\[\](\/public\/assets/g' {} +
-fi
+cp -r $BLOG_ASSETS_PATH $ASTRO_ASSETS_PATH
+
+# Copy thumbnail to Astro assets path
+rm -rf $ASTRO_THUMBNAIL_PATH
+cp -r $BLOG_THUMBNAIL_PATH $ASTRO_THUMBNAIL_PATH
