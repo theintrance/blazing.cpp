@@ -18,3 +18,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# built docs
+astro/src/content/blog/*
+astro/public/assets/*
