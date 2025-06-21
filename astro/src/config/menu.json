@@ -6,15 +6,15 @@
     },
     {
       "name": "About",
-      "url": "/about"
+      "url": "/blazing.cpp/about"
     },
     {
       "name": "Tags",
-      "url": "/tags"
+      "url": "/blazing.cpp/tags"
     },
     {
       "name": "Categories",
-      "url": "/categories"
+      "url": "/blazing.cpp/categories"
     }
   ]
 }
