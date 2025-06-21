@@ -4,6 +4,17 @@ import { getTaxonomy } from '@utils/getAllTags';
 
 const tags = await getTaxonomy('blog', 'tags');
 
+const uniqueTags = [...new Set(tags.map((item) => item.slug))]
+  .map((slug) => {
+    return {
+      slug: slug,
+      name: tags.find((tag) => tag.slug === slug)?.name,
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+console.log(uniqueTags);
+
 ---
 
 <Base>
@@ -11,14 +22,14 @@ const tags = await getTaxonomy('blog', 'tags');
     <h1 class="mb-8 text-2xl font-bold md:text-3xl">Tags:</h1>
     <ul class="align-center flex flex-wrap justify-center gap-3">
       {
-        tags.map((tag) => (
+        uniqueTags.map((tag) => (
           <li>
             <a
               class='text-zinc-500 hover:text-zinc-800 dark:text-zinc-400'
-              href={`/tags/${tag.slug}`}
+              href={`/tags/${tag.slug}`}  
               title={`View posts with the tag: ${tag.name}`}
             >
-              {tag.name}
+              #{tag.name}
             </a>
           </li>
         ))
