@@ -21,6 +21,9 @@ type PostType = {
     autors: string[];
   };
 };
+
+const base_path = config.site.base_path;
+
 ---
 
 <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -29,11 +32,11 @@ type PostType = {
       <article class="flex w-full flex-col items-start">
         <div class="mb-4 block overflow-hidden rounded-lg">
           {post.data.heroImage && (
-            <a href={`/blog/${post.slug}/`}>
+            <a href={`${base_path}/blog/${post.slug}/`}>
               <figure class="h-auto w-auto object-cover md:h-[150px]">
                 <Image
                   class="transition duration-300 ease-in-out hover:scale-110"
-                  src={post.data.heroImage}
+                  src={`${base_path}${post.data.heroImage}`}
                   alt={post.data.title}
                   width={960}
                   height={480}
@@ -57,7 +60,7 @@ type PostType = {
         </div>
         <div class="relative">
           <h2 class="mt-3 text-xl font-semibold leading-6 text-zinc-900 group-hover:text-zinc-600 dark:text-white">
-            <a href={`/blog/${post.slug}/`}>
+            <a href={`${base_path}/blog/${post.slug}/`}>
               <span class="absolute inset-0" />
               {post.data.title}
             </a>

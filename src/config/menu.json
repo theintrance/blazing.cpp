@@ -2,7 +2,7 @@
   "main": [
     {
       "name": "Home",
-      "url": "/"
+      "url": "/blazing.cpp"
     },
     {
       "name": "About",

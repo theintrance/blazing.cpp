@@ -3,9 +3,9 @@
     "title": "blazing.cpp",
     "base_url": "https://theintrance.github.io",
     "base_path": "/blazing.cpp",
-    "favicon": "/favicon.png",
-    "logoLight": "/logo.svg",
-    "logoDark": "/logo.svg",
+    "favicon": "/blazing.cpp/favicon.png",
+    "logoLight": "/blazing.cpp/logo.svg",
+    "logoDark": "/blazing.cpp/logo.svg",
     "lang": "en",
     "description": "Study less_slow.cpp",
     "pageSize": 10

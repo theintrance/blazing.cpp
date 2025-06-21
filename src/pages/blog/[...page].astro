@@ -24,9 +24,9 @@ const { page } = Astro.props;
     length={page.lastPage}
     currentUrl={page.url.current}
     currentPage={page.currentPage}
-    firstUrl={`/blog/`}
+    firstUrl={`${config.site.base_path}/blog/`}
     prevUrl={page.url.prev}
     nextUrl={page.url.next}
-    lastUrl={`/blog/${page.lastPage}`}
+    lastUrl={`${config.site.base_path}/blog/${page.lastPage}`}
   />
 </Base>
