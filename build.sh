@@ -16,9 +16,13 @@ mkdir -p $ASTRO_BLOG_PATH
 find $BLOG_PATH -type f -name '*.md' -exec cp {} $ASTRO_BLOG_PATH \;
 
 # Copy assets to Astro assets path
-rm -rf $ASTRO_ASSETS_PATH
-cp -r $BLOG_ASSETS_PATH $ASTRO_ASSETS_PATH
+if [ -d "$BLOG_ASSETS_PATH" ]; then
+    rm -rf $ASTRO_ASSETS_PATH
+    cp -r $BLOG_ASSETS_PATH $ASTRO_ASSETS_PATH
+fi
 
 # Copy thumbnail to Astro assets path
-rm -rf $ASTRO_THUMBNAIL_PATH
-cp -r $BLOG_THUMBNAIL_PATH $ASTRO_THUMBNAIL_PATH
+if [ -d "$BLOG_THUMBNAIL_PATH" ]; then
+    rm -rf $ASTRO_THUMBNAIL_PATH
+    cp -r $BLOG_THUMBNAIL_PATH $ASTRO_THUMBNAIL_PATH
+fi
