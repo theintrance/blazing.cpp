@@ -22,3 +22,7 @@ pnpm-debug.log*
 # built docs
 astro/src/content/blog/*
 astro/public/thumbnails/*
+
+# vscode
+.vscode/
+package-lock.json
