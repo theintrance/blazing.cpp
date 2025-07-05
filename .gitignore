@@ -25,4 +25,3 @@ astro/public/thumbnails/*
 
 # vscode
 .vscode/
-package-lock.json
