@@ -3,6 +3,7 @@
 #include <vector>
 
 namespace mid {
+  
 std::unordered_map<std::string, std::size_t>
 first_offsets(std::vector<std::string> const & strings) {
   std::unordered_map<std::string, std::size_t> offsets;
@@ -11,4 +12,5 @@ first_offsets(std::vector<std::string> const & strings) {
       offsets[strings[idx]] = idx;
   return offsets;
 }
+
 }   // namespace mid

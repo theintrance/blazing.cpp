@@ -1,19 +1,20 @@
-#include <bit> // `std::bit_ceil`
+#include <bit>
 #include <span>
-#include <limits> // `std::numeric_limits`
+#include <limits>
 #include <string>
 #include <vector>
 #include <optional>
-#include <functional> // `std::hash`
+#include <functional>
 #include <string_view>
 
 namespace enthusiast {
+
 using string_ptr_t = std::string const *;
 
 class flat_unordered_set_t {
     string_ptr_t first {};
     std::vector<string_ptr_t> hashed {};
-  public:
+ public:
     flat_unordered_set_t(std::span<std::string> strings)
         : first(strings.data()), 
           hashed(std::bit_ceil<std::size_t>(strings.size() * 1.3)) {
@@ -33,8 +34,8 @@ class flat_unordered_set_t {
         while (hashed[slot] && *hashed[slot] != string)
             slot = (slot + 1) & (hashed.size() - 1);
         return hashed[slot] 
-                  ? hashed[slot] - first
-                  : std::numeric_limits<std::size_t>::max();
+                ? hashed[slot] - first
+                : std::numeric_limits<std::size_t>::max();
     }
 };
 
@@ -49,4 +50,5 @@ try {
 catch (...) {
     return {};
 }
+
 }   // namespace enthusiast

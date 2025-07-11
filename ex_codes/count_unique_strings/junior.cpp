@@ -10,7 +10,7 @@ first_offsets(std::vector<std::string> strings) {
   for (int idx = 0; idx < strings.size(); idx++)
     if (offsets.find(strings[idx]) == offsets.end())
       offsets[strings[idx]] = idx;
-    return offsets;
+  return offsets;
 }
 
 }   // namespace junior
