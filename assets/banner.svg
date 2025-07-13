@@ -24,15 +24,15 @@
 
     <rect x="1" y="1" width="798" height="198" rx="16" ry="16" fill="url(#lightGradient)"
         stroke="gray" stroke-width="0.3" />
+    <a href="https://theintrance.github.io/blazing.cpp/" target="_blank">
+        <text x="400" y="60" text-anchor="middle" class="title">💨 blazing.cpp</text>
 
-    <text x="400" y="60" text-anchor="middle" class="title">💨 blazing.cpp</text>
+        <text x="400" y="110" text-anchor="middle" class="body" fill="#666"> 이 포스트는 C++ 개발자들의 스터디 그룹 <tspan
+                font-style="italic">blazing.cpp</tspan> 프로젝트의 일환입니다. </text>
 
-    <text x="400" y="110" text-anchor="middle" class="body" fill="#666"> 이 포스트는 C++ 개발자들의 스터디 그룹 <tspan
-            font-style="italic">blazing.cpp</tspan> 프로젝트의 일환입니다. </text>
-
-    <a href="https://github.com/blazing-cpp" target="_blank">
-        <text x="400" y="150" text-anchor="middle" class="body" fill="#666">
-            여기를 클릭하여 blazing.cpp 의 다른 포스트도 살펴보세요.
-        </text>
+        
+            <text x="400" y="150" text-anchor="middle" class="body" fill="#666">
+                여기를 클릭하여 blazing.cpp 의 다른 포스트도 살펴보세요.
+            </text>
     </a>
 </svg>
