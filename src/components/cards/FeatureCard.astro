@@ -1,59 +1,145 @@
 ---
-const {href, imgSrc, title} = Astro.props;
+
+import fetchMeta from 'fetch-meta-tags';
+
+interface Props {
+	url: string;
+  date: string;
+  author: string;
+}
+
+const {url, date, author} = Astro.props;
+const result = await fetchMeta(url)
 ---
 
-<style>
-  .feature-card__card {
-    background-color: var(--theme-surface-1);
-    color: var(--theme-on-surface-1);
-    border-radius: var(--theme-shape-radius);
-  }
-  .feature-card__link {
-    display: block;
-    text-decoration: none;
-  }
-  .featured-card__content {
-    padding: 1rem 1rem 0 1rem;
-     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow-y: hidden;
-  }
-  .featured-card__content picture {
-    width: 100%;
-    height: 100%;
-  }
-  .feature-card__card .feature-card__img {
-    --image-shadow: 0 -0.5rem 1rem rgba(138, 138, 138, 0.12);
-    margin: 0 auto;
-    width: clamp(60%, 70%, 390px);
-    height: auto;
-    object-fit: cover;
-    /* border-radius: 1rem 1rem 0 0; */
-    box-shadow: var(--image-shadow);
-    transform: translateY(0.5rem);
-    transition: transform var(--theme-transition);
-  }
-  .feature-card__card:hover .feature-card__img {
-    transform: translateY(0);
-  }
-  .feature-card__title {
-    font-family: var(--theme-font-family-sans);
-  }
-</style>
-
-
-<div class="feature-card__card">
-  <a class="feature-card__link" href={href}>
-    <div class="featured-card__content">
-      <h3 class="feature-card__title">{title}</h3>
-      <!-- I would like to swap this out with Astro's Image integration soon but was having some issues with it at the moment so we're going old school here. -->
-      <picture>
-        <source srcset={`${imgSrc}.webp`} type="image/webp" >
-        <img class="feature-card__img" src={`${imgSrc}.png`} alt={title} loading="lazy" width="780" height="585" decoding="async" >
-      </picture>
+<a href={result.url} class="feature-card__link" target="_blank" rel="noopener noreferrer">
+    <div class="feature-card__content">
+        <div class="feature-card__header">
+            <h3 class="feature-card__title">
+                {result.title}
+            </h3>
+        </div>
+        
+        {result.description && (
+            <p class="feature-card__description">
+                {result.description}
+            </p>
+        )}
+        
+        <div class="feature-card__meta">
+            <div class="feature-card__meta-info">
+                {author && (
+                    <span class="feature-card__author">
+                        <img class="feature-card__avatar" src={`https://github.com/${author}.png`} alt={author} />
+                        @{author}
+                    </span>
+                )}
+                {date && (
+                    <span class="feature-card__date">{date}</span>
+                )}
+            </div>
+            <div class="feature-card__arrow">
+                →
+            </div>
+        </div>
     </div>
-  </a>
-</div> 
+</a>
 
+<style>
+    .feature-card__link {
+        display: block !important;
+        margin: 1rem 0 !important;
+        text-decoration: none !important;
+        color: inherit !important;
+        border: 1px solid lightgray !important;
+        border-radius: 0.5rem !important;
+        padding: 1rem !important;
+        transition: all 0.3s ease !important;
+        background-color: var(--theme-bg) !important;
+    }
+
+    .feature-card__link:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-color: lightgray;
+        transform: translateY(-2px);
+    }
+
+    .feature-card__content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.25rem !important;
+    }
+
+    .feature-card__title {
+        font-family: var(--theme-font-family-serif) !important;
+        font-weight: 600 !important;
+        font-size: var(--font-size-base) !important;
+        color: var(--theme-on-bg) !important;
+        margin: 0 !important;
+        margin-bottom: 0 !important;
+        line-height: 1.4 !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .feature-card__link:hover .feature-card__title {
+        color: var(--theme-primary);
+    }
+
+    .feature-card__description {
+        font-size: var(--font-size-sm) !important;
+        color: var(--theme-on-surface) !important;
+        margin: 0 !important;
+        margin-bottom: 0 !important;
+        line-height: 1.5 !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 3 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .feature-card__meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
+
+    .feature-card__meta-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: var(--font-size-sm);
+    }
+
+    .feature-card__author {
+        color: var(--theme-on-surface);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .feature-card__avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .feature-card__date {
+        color: var(--theme-on-surface);
+        opacity: 0.7;
+    }
+
+    .feature-card__arrow {
+        color: var(--theme-on-surface);
+        opacity: 0.6;
+        transition: color 0.2s ease;
+    }
+
+    .feature-card__link:hover .feature-card__arrow {
+        color: var(--theme-primary);
+    }
+</style>

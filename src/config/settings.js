@@ -1,8 +1,8 @@
 export default {
-	title: `Odyssey Astro Theme | A Marketing Website Theme for Startups and Businesses`,
-	description: `A simple, clean, and modern theme for a startup or businesses' marketing website.`,
-	url: `https://odyssey-theme.sapling.supply`, // No trailing slash!
-	name: `Odyssey`, // The short name of the business or brand name. Used for things like the copyright in the footer.
-	enableThemeSwitcher: true,
+	title: `Blazing.cpp | A C++ study group`,
+	description: `A C++ study group for beginners and experienced developers alike.`,
+	url: `https://theintrance.github.io/blazing.cpp`, // No trailing slash!
+	name: `Blazing.cpp`, // The short name of the business or brand name. Used for things like the copyright in the footer.
+	enableThemeSwitcher: false,
 	showPlug: true, // Disable this if you want to remove the plug from the footer. (╯°□°)╯︵ ┻━┻
 };

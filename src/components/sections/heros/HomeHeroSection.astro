@@ -8,23 +8,21 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 <Container>
 	<section class="hero-section__section">
 		<div class="hero-section__text">
-				<h1>Welcome to Odyssey</h1>
+				<h1>blazing.cpp</h1>
 				<p>
-					A marketing website theme built with <a
-						href="https://astro.build"
-						target="_blank"
-						rel="noreferrer">Astro</a
-					> and carefully crafted for startups and businesses.
+					A performance-driven deep dive into <a href="https://ashvardanian.com/tags/less-slow/">less_slow.cpp</a> by two developers.
 				</p>
 				<div class="hero-btns__container">
-					<Button href="/theme/get-started" customIcon
-						>Get Started
-            <Fragment slot="icon">
-              <Icon name="ic:baseline-chevron-right"/>
-            </Fragment>
-            </Button
-					>
-					<Button href="/theme/style-guide" unelevated>Style Guide</Button>
+					<a href="https://github.com/bayernmuller">
+						<Button>
+							@BayernMuller
+						</Button>
+					</a>
+					<a href="https://github.com/Jin-uu">
+						<Button>
+							@Jin-uu
+						</Button>
+					</a>
 				</div>
         {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
 		</div>
