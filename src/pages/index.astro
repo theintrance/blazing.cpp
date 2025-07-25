@@ -7,9 +7,6 @@ import { featureCards } from '../data/featureCards.js';
 
 // 모든 FeatureCard 데이터 가져오기
 const allCards = featureCards;
-
-// 고유한 작성자 목록 가져오기 (필터 옵션용)
-const uniqueAuthors = [...new Set(featureCards.map(card => card.author))];
 ---
 
 <Layout>
@@ -21,43 +18,13 @@ const uniqueAuthors = [...new Set(featureCards.map(card => card.author))];
 			<!-- blazing.cpp project study posts. -->
 			</p>
 			
-			<div class="controls">
-				<div class="filter-controls">
-					<label for="author-filter">Filter by Author:</label>
-					<select id="author-filter" onchange="applyFiltersAndSort()">
-						<option value="">All Authors</option>
-						{uniqueAuthors.map(author => (
-							<option value={author}>
-								{author}
-							</option>
-						))}
-					</select>
-				</div>
-				
-				<div class="sort-controls">
-					<label for="sort-by">Sort by:</label>
-					<select id="sort-by" onchange="applyFiltersAndSort()">
-						<option value="date" selected>Date</option>
-						<option value="author">Author</option>
-					</select>
-					
-					<label for="sort-order">Order:</label>
-					<select id="sort-order" onchange="applyFiltersAndSort()">
-						<option value="desc" selected>Descending</option>
-						<option value="asc">Ascending</option>
-					</select>
-				</div>
-			</div>
-		
-			<div id="cards-container">
-				{allCards.map((card, index) => (
-					<div class="card-wrapper" data-author={card.author} data-date={card.date} data-index={index}>
-						<FeatureCard 
-							url={card.url}
-							date={card.date}
-							author={card.author}
-						/>
-					</div>
+			<div class="cards-container">
+				{allCards.map((card) => (
+					<FeatureCard 
+						url={card.url}
+						date={card.date}
+						author={card.author}
+					/>
 				))}
 			</div>
 		
@@ -131,207 +98,10 @@ const uniqueAuthors = [...new Set(featureCards.map(card => card.author))];
 		}
 	}
 	
-	.controls {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 3rem;
-		padding: 1.5rem 2rem;
-		background: var(--theme-bg);
-		border: 1px solid rgba(var(--theme-primary-rgb, 79, 70, 229), 0.1);
-		border-radius: 1rem;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-		transition: all 0.3s ease;
-	}
-	
-	.controls:hover {
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-		border-color: rgba(var(--theme-primary-rgb, 79, 70, 229), 0.2);
-	}
-	
-	.filter-controls, .sort-controls {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-	
-	.controls label {
-		font-weight: 500;
-		font-size: 0.875rem;
-		color: var(--theme-on-surface);
-		letter-spacing: 0.025em;
-		margin-right: 0.25rem;
-	}
-	
-	.controls select {
-		padding: 0.625rem 1rem;
-		border: 1px solid rgba(var(--theme-primary-rgb, 79, 70, 229), 0.15);
-		border-radius: 0.5rem;
-		background-color: var(--theme-bg);
-		color: var(--theme-on-bg);
-		font-size: 0.875rem;
-		font-weight: 500;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		outline: none;
-		appearance: none;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
-		background-position: right 0.75rem center;
-		background-repeat: no-repeat;
-		background-size: 1rem;
-		padding-right: 2.5rem;
-	}
-	
-	.controls select:hover {
-		border-color: rgba(var(--theme-primary-rgb, 79, 70, 229), 0.3);
-		background-color: rgba(var(--theme-primary-rgb, 79, 70, 229), 0.02);
-	}
-	
-	.controls select:focus {
-		border-color: var(--theme-primary);
-		box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb, 79, 70, 229), 0.1);
-	}
-	
-	@media (max-width: 768px) {
-		.controls {
-			flex-direction: column;
-			gap: 1.5rem;
-			align-items: stretch;
-			padding: 1.25rem;
-		}
-		
-		.filter-controls, .sort-controls {
-			justify-content: space-between;
-			flex-wrap: wrap;
-			gap: 0.75rem;
-		}
-		
-		.controls select {
-			min-width: 120px;
-		}
-	}
-
 	/* 카드 컨테이너 레이아웃 */
-	#cards-container {
+	.cards-container {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.card-wrapper {
-		width: 100%;
+		gap: 0.5rem;
 	}
 </style>
-
-<script is:inline>
-	// 모든 카드 데이터 (서버에서 가져온 데이터)
-	const allCardsData = [
-		{
-			url: "https://bayernmuller.github.io/blog/250719-javascript-vector-cosine-distance/",
-			date: "2025-07-19",
-			author: "BayernMuller"
-		},
-		{
-			url: "https://github.com/withastro/astro",
-			date: "2024-01-15",
-			author: "astro"
-		},
-		{
-			url: "https://github.com/tailwindlabs/tailwindcss",
-			date: "2024-01-10",
-			author: "tailwindlabs"
-		},
-		{
-			url: "https://github.com/vuejs/vue",
-			date: "2024-01-08",
-			author: "vuejs"
-		},
-		{
-			url: "https://github.com/facebook/react",
-			date: "2024-01-05",
-			author: "facebook"
-		},
-		{
-			url: "https://github.com/nodejs/node",
-			date: "2024-01-03",
-			author: "nodejs"
-		},
-		{
-			url: "https://astro.build/blog/astro-4/",
-			date: "2023-12-05",
-			author: "astro"
-		},
-		{
-			url: "https://tailwindcss.com/blog/tailwindcss-v3-4",
-			date: "2023-12-10",
-			author: "tailwindlabs"
-		},
-		{
-			url: "https://reactjs.org/blog/2023/03/16/introducing-react-dev.html",
-			date: "2023-03-16",
-			author: "facebook"
-		}
-	];
-
-	function applyFiltersAndSort() {
-		const authorFilter = document.getElementById('author-filter').value;
-		const sortBy = document.getElementById('sort-by').value;
-		const sortOrder = document.getElementById('sort-order').value;
-		
-		console.log('Filtering and sorting:', { authorFilter, sortBy, sortOrder });
-		
-		// 필터링
-		let filteredCards = allCardsData;
-		if (authorFilter) {
-			filteredCards = allCardsData.filter(card => card.author === authorFilter);
-		}
-		
-		// 정렬
-		if (sortBy === 'date') {
-			filteredCards.sort((a, b) => {
-				const dateA = new Date(a.date).getTime();
-				const dateB = new Date(b.date).getTime();
-				return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
-			});
-		} else if (sortBy === 'author') {
-			filteredCards.sort((a, b) => {
-				return sortOrder === 'desc' 
-					? b.author.localeCompare(a.author)
-					: a.author.localeCompare(b.author);
-			});
-		}
-		
-		// 카드 컨테이너 업데이트
-		updateCardsDisplay(filteredCards);
-	}
-	
-	function updateCardsDisplay(cards) {
-		const container = document.getElementById('cards-container');
-		const allWrappers = container.querySelectorAll('.card-wrapper');
-		
-		// 모든 카드 숨기기
-		allWrappers.forEach(wrapper => {
-			wrapper.style.display = 'none';
-		});
-		
-		// 필터링된 카드들을 순서대로 보이기
-		cards.forEach((card, newIndex) => {
-			// 해당 카드 찾기
-			const matchingWrapper = Array.from(allWrappers).find(wrapper => 
-				wrapper.dataset.author === card.author && 
-				wrapper.dataset.date === card.date
-			);
-			
-			if (matchingWrapper) {
-				matchingWrapper.style.display = 'block';
-				matchingWrapper.style.order = newIndex;
-			}
-		});
-	}
-	
-	// DOM 로드 후 초기화
-	document.addEventListener('DOMContentLoaded', function() {
-		console.log('DOM loaded, initializing filters');
-		applyFiltersAndSort(); // 초기 정렬 적용
-	});
-</script>
