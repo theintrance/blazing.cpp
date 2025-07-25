@@ -9,4 +9,5 @@ export default defineConfig({
   site: 'https://theintrance.github.io/blazing.cpp', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   sitemap: true, // Generate sitemap (set to "false" to disable)
   integrations: [sitemap(), mdx(), lit(), icon()], // Add renderers to the config
+  base: "/blazing.cpp/",
 });
