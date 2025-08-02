@@ -1,5 +1,10 @@
 export const featureCards = [
   {
+    url: "https://jin-uu.github.io/blog/250801-fast-argument-parsing/",
+    date: "2025-08-01",
+    author: "jin-uu"
+  },
+  {
     url: "https://bayernmuller.github.io/blog/250719-javascript-vector-cosine-distance/",
     date: "2025-07-19",
     author: "BayernMuller"
