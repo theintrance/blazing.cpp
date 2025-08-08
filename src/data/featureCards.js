@@ -1,5 +1,10 @@
 export const featureCards = [
   {
+    url: "https://bayernmuller.github.io/blog/250802-what-wrong-with-std-string/",
+    date: "2025-08-01",
+    author: "BayernMuller"
+  },
+  {
     url: "https://jin-uu.github.io/blog/250801-fast-argument-parsing/",
     date: "2025-08-01",
     author: "jin-uu"
