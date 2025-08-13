@@ -1,5 +1,10 @@
 export const featureCards = [
   {
+    url: "https://bayernmuller.github.io/blog/250809-10x-faster-cpp-string-split/",
+    date: "2025-08-08",
+    author: "BayernMuller"
+  },
+  {
     url: "https://bayernmuller.github.io/blog/250802-what-wrong-with-std-string/",
     date: "2025-08-01",
     author: "BayernMuller"
